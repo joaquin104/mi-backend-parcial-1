@@ -8,9 +8,11 @@ app.get('/', (req, res) => {
   res.json({ mensaje: 'Servidor funcionando ✅' });
 });
 
+app.use(express.json());
+
 app.use('/api/productos', require('./routes/productosRoutes'));
 
-app.use(express.json());
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

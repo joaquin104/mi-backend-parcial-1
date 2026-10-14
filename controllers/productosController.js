@@ -18,4 +18,10 @@ const actualizar = (req, res) => {
   res.json(actualizado);
 };
 
-module.exports = { obtener, crear, actualizar };
+const eliminar = (req, res) => {
+  const { id } = req.params;
+  service.eliminar(id);
+  res.json({ mensaje: 'Eliminado correctamente '});
+};
+
+module.exports = { obtener, crear, actualizar, eliminar };

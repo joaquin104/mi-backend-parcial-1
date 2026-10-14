@@ -16,7 +16,12 @@ const actualizar = (id, cambios) => {
   productos = productos.map((p) =>
     p.id === id ? { ...p, ...cambios } : p
   );
-  return productos.find((p) => p.id === id);
+  return productos.find((p) => p.id === parseInt(id));
 };
 
-module.exports = { obtenerTodos, crear, actualizar };
+const eliminar = (id) => {
+  productos = productos.filter((p) => p.id !== parseInt(id)
+  );
+};
+
+module.exports = { obtenerTodos, crear, actualizar, eliminar };
